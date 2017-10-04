@@ -24,7 +24,7 @@ class Application
       end
     elsif req.path.match(/add/)
       add_item = req.params["q"]
-      @@items.include?(add_item) ? @@cart << add_item : "Error, item not found"
+      @@items.include?(add_item) ? @@cart << add_item : "We don't have that item"
     else
       resp.write "Path Not Found"
     end
