@@ -1,7 +1,7 @@
 class Application
 
   @@items = ["Apples","Carrots","Pears"]
-  @@cart = ["Apples"]
+  @@cart = []
 
   def call(env)
     resp = Rack::Response.new
@@ -19,7 +19,7 @@ class Application
         resp.write "#{item}\n"
       end
     elsif req.path.match(/add/)
-      
+
     else
       resp.write "Path Not Found"
     end
