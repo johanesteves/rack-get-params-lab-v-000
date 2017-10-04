@@ -18,7 +18,7 @@ class Application
     elsif req.path.match(/cart/)
       binding.pry
       if @@cart.size == 0
-        puts "Your cart is empty"
+        resp.write "Your cart is empty"
       else
         @@cart.each do |item|
           resp.write "#{item}\n"
@@ -26,7 +26,7 @@ class Application
       end
     elsif req.path.match(/add/)
       add_item = req.params["q"]
-      @@items.include?(add_item) ? @@cart << add_item : "We don't have that item"
+      @@items.include?(add_item) ? @@cart << add_item : resp.write "We don't have that item"
     else
       resp.write "Path Not Found"
     end
